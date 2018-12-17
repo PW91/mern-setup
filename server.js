@@ -19,6 +19,8 @@ mongoose
   .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log(err));
 
+app.use("/api/items", items);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -26,8 +28,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-app.use("/api/items", items);
 
 const port = process.env.PORT || 5000;
 
