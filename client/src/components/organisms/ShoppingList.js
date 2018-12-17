@@ -10,6 +10,8 @@ class ShoppingList extends Component {
     const { items, deleteItem, loadingFlag } = this.props;
 
     if (items.length || loadingFlag) {
+      console.log(items);
+
       return (
         <ListGroup>
           <TransitionGroup>
