@@ -9,6 +9,7 @@ import {
   Label,
   Input
 } from "reactstrap";
+import propTypes from "prop-types";
 
 class AddItemModal extends Component {
   state = {
@@ -30,21 +31,18 @@ class AddItemModal extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    this.props.addItem(this.state.name);
+
+    const { addItem } = this.props;
+    addItem(this.state.name);
     this.toggleModal();
   };
 
   render() {
     return (
-      <div>
-        <Button
-          color="dark"
-          style={{ marginBottom: "2rem" }}
-          onClick={this.toggleModal}
-        >
+      <div className="add-button__wrap">
+        <Button color="dark" onClick={this.toggleModal}>
           Add item
         </Button>
-
         <Modal isOpen={this.state.modalOpenFlag} toggle={this.toggleModal}>
           <ModalHeader toggle={this.toggleModal}>Add item</ModalHeader>
           <ModalBody>
@@ -59,7 +57,7 @@ class AddItemModal extends Component {
                   onChange={this.onInputChange}
                 />
               </FormGroup>
-              <Button color="dark" style={{ marginTop: "2rem" }} block>
+              <Button color="dark" block>
                 Add item
               </Button>
             </Form>
@@ -69,5 +67,9 @@ class AddItemModal extends Component {
     );
   }
 }
+
+AddItemModal.propTypes = {
+  addItem: propTypes.func.isRequired
+};
 
 export default AddItemModal;

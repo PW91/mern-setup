@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class MainHeader extends Component {
   render() {
-    return <h1>Header</h1>;
+    return (
+      <header>
+        <h2>Header</h2>
+      </header>
+    );
   }
 }
 

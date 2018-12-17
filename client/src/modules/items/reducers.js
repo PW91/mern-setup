@@ -2,8 +2,9 @@ import types from "./types";
 
 const defaultState = {
   items: [],
-  loading: false,
-  error: null
+  loadingFlag: false,
+  errorFlag: false,
+  errorMsg: null
 };
 
 export default function reducer(state = defaultState, action) {
@@ -11,7 +12,7 @@ export default function reducer(state = defaultState, action) {
     case types.GET_ITEMS_REQUESTED: {
       return {
         ...state,
-        loading: true
+        loadingFlag: true
       };
     }
 
@@ -19,43 +20,47 @@ export default function reducer(state = defaultState, action) {
       return {
         ...state,
         items: action.payload,
-        loading: false
+        loadingFlag: false
       };
     }
 
     case types.GET_ITEMS_REJECTED: {
       return {
         ...state,
-        loading: false
+        loadingFlag: false,
+        errorFlag: true,
+        errorMsg: action.payload.message
       };
     }
 
     case types.POST_ITEM_REQUESTED: {
       return {
         ...state,
-        loading: true
+        loadingFlag: true
       };
     }
 
     case types.POST_ITEM_FULFILLED: {
       return {
         ...state,
-        items: [...state.items, action.payload],
-        loading: false
+        items: [action.payload, ...state.items],
+        loadingFlag: false
       };
     }
 
     case types.POST_ITEM_REJECTED: {
       return {
         ...state,
-        loading: false
+        loadingFlag: false,
+        errorFlag: true,
+        errorMsg: action.payload.message
       };
     }
 
     case types.DELETE_ITEM_REQUESTED: {
       return {
         ...state,
-        loading: true
+        loadingFlag: true
       };
     }
 
@@ -64,7 +69,7 @@ export default function reducer(state = defaultState, action) {
 
       return {
         ...state,
-        loading: false,
+        loadingFlag: false,
         items: filteredItems
       };
     }
@@ -72,7 +77,9 @@ export default function reducer(state = defaultState, action) {
     case types.DELETE_ITEM_REJECTED: {
       return {
         ...state,
-        loading: false
+        loadingFlag: false,
+        errorFlag: true,
+        errorMsg: action.payload.message
       };
     }
 

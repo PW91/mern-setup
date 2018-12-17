@@ -1,6 +1,6 @@
 // font stacks
 $sans-serif: "Roboto", Arial, Helvetica, sans-serif;
-$serif: "Georgia", Cambria, Times New Roman, Times, serif;
+$serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
 
 // font weights
 $light: 300;
@@ -13,16 +13,16 @@ $heavy: 900;
 // SIZES - MOBILE //
 ////////////////////
 
-$singularity-mobile: pxToRem(30); // hero title zmienione
-$huge-mobile: pxToRem(30); // h1 zmienione
-$large-mobile: pxToRem(30); //zmienione
-$bigger-mobile: pxToRem(18); // h4
-$big-mobile: pxToRem(20); // h2 zmienione
-$medium-mobile: pxToRem(16); // h3 zmienione
-$normal-mobile: pxToRem(15); // default p zmienione
-$small-mobile: pxToRem(12); // video info
+$singularity-mobile: pxToRem(30);
+$huge-mobile: pxToRem(30);
+$large-mobile: pxToRem(30);
+$bigger-mobile: pxToRem(18);
+$big-mobile: pxToRem(20);
+$medium-mobile: pxToRem(16);
+$normal-mobile: pxToRem(15);
+$small-mobile: pxToRem(12);
 $little-mobile: pxToRem(12);
-$tiny-mobile: pxToRem(12); // video info zmienione
+$tiny-mobile: pxToRem(12);
 
 ////////////////////
 // SIZES - TABLET //
@@ -58,13 +58,13 @@ $tiny-desktop: pxToRem(12);
 // SIZES - WIDE  //
 ///////////////////
 
-$singularity-wide: pxToRem(52); // h1
-$huge-wide: pxToRem(36); // h2
+$singularity-wide: pxToRem(52);
+$huge-wide: pxToRem(36);
 $large-wide: pxToRem(32);
-$bigger-wide: pxToRem(24); // h3
-$big-wide: pxToRem(22); // h4
-$medium-wide: pxToRem(18); // h5
-$normal-wide: pxToRem(16); // p
+$bigger-wide: pxToRem(24);
+$big-wide: pxToRem(22);
+$medium-wide: pxToRem(18);
+$normal-wide: pxToRem(16);
 $small-wide: pxToRem(15);
 $little-wide: pxToRem(14);
 $tiny-wide: pxToRem(12);
@@ -216,7 +216,6 @@ h5,
   text-rendering: optimizelegibility;
   font-weight: 400;
 
-  /* removing text decoration from all headline links */
   a {
     text-decoration: none;
   }

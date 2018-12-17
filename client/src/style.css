@@ -548,8 +548,7 @@ h4,
 h5,
 .h5 {
   text-rendering: optimizelegibility;
-  font-weight: 400;
-  /* removing text decoration from all headline links */ }
+  font-weight: 400; }
   h1 a,
   .h1 a,
   h2 a,
@@ -583,8 +582,20 @@ p,
   -webkit-hyphenate-after: 3;
   hyphenate-lines: 3; }
 
-.layout {
+.wrap {
   max-width: 960px;
-  margin: 0 auto;
-  background-color: #fafafa;
-  min-height: 100vh; }
+  margin: 0 auto; }
+
+header,
+footer {
+  padding: 30px 0;
+  text-align: center; }
+
+.delete-button {
+  margin-right: 30px; }
+
+.add-button__wrap {
+  margin-top: 30px; }
+
+.container__wrap {
+  margin: 30px 0; }

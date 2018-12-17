@@ -1,29 +1,36 @@
 import React, { Component } from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { ListGroup } from "reactstrap";
+import propTypes from "prop-types";
 
-import DeleteButton from "../atoms/DeleteButton";
+import ShoppingItem from "../atoms/ShoppingItem";
 
 class ShoppingList extends Component {
   render() {
-    const { items, deleteItem } = this.props;
+    const { items, deleteItem, loadingFlag } = this.props;
 
-    return (
-      <ListGroup>
-        <TransitionGroup>
-          {items.map(({ _id, name }) => (
-            <CSSTransition key={_id} timeout={500} classNames="fade">
-              <ListGroupItem>
-                {" "}
-                <DeleteButton deleteItem={deleteItem} id={_id} />
-                {name}
-              </ListGroupItem>
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
-      </ListGroup>
-    );
+    if (items.length || loadingFlag) {
+      return (
+        <ListGroup>
+          <TransitionGroup>
+            {items.map(({ _id, name }) => (
+              <CSSTransition key={_id} timeout={500} classNames="fade">
+                <ShoppingItem id={_id} deleteItem={deleteItem} name={name} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+        </ListGroup>
+      );
+    } else {
+      return <h3>No items.</h3>;
+    }
   }
 }
+
+ShoppingItem.propTypes = {
+  loadingFlag: propTypes.bool,
+  items: propTypes.array,
+  deleteItem: propTypes.func.isRequired
+};
 
 export default ShoppingList;

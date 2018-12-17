@@ -24,26 +24,28 @@ class MainNav extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
-          <Container>
-            <NavbarBrand href="/">MERN SETUP</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink tag={Link} to="/">
-                    Home
-                  </NavLink>
-                  <NavLink tag={Link} to="/page">
-                    Page
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Container>
-        </Navbar>
-      </div>
+      <Navbar expand="sm" color="light" light>
+        <Container>
+          <NavbarBrand tag={Link} to="/">
+            MERN SETUP
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink tag={Link} to="/">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/page">
+                  Page
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
+      </Navbar>
     );
   }
 }

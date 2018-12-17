@@ -1,6 +1,26 @@
-.layout {
+.wrap {
   max-width: 960px;
   margin: 0 auto;
-  background-color: #fafafa;
-  min-height: 100vh;
+}
+
+header,
+footer {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.delete-button {
+  margin-right: 30px;
+}
+
+.add-button {
+  &__wrap {
+    margin-top: 30px;
+  }
+}
+
+.container {
+  &__wrap {
+    margin: 30px 0;
+  }
 }
